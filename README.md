@@ -109,14 +109,14 @@ FROM marketing_campanhas.clientes
 ORDER BY renda DESC; 
 ```
 
-* Calculando a média da idade, descosiderando os outliers: 45 anos.
+* Calculando a média da idade, desconsiderando os outliers: 45 anos.
 ```sql
 SELECT ROUND(AVG((2014 - Year_Birth)),0) AS media_idade
 FROM marketing_campanhas.clientes 
 WHERE (2014 - Year_Birth) < 114;
 ```
 
-* Calculando a média da renda dos clientes, descosiderando o outlier: 51.970 dolares.
+* Calculando a média da renda dos clientes, desconsiderando o outlier: 51.970 dolares.
 ```sql
 SELECT ROUND(AVG(income),0) AS media_renda
 FROM marketing_campanhas.clientes 
