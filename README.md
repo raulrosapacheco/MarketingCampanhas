@@ -123,6 +123,57 @@ FROM marketing_campanhas.clientes
 WHERE income < 666666; 
 ```
 
+### 3. Transformando dados e gerando uma nova tabela
+
+```sql
+CREATE TABLE `clientes_transformados` AS (
+SELECT
+		Id AS id,
+        	CASE
+			WHEN (2014 - Year_Birth) < 114 THEN (2014 - Year_Birth) 
+            	ELSE 45 
+		END AS idade,
+		CASE 
+			WHEN Education = 'Graduation' THEN 'Graduacao'
+			WHEN Education = 'PhD' THEN 'Doutorado'
+			WHEN Education = 'Master' THEN 'Mestrado'
+			WHEN Education = '2n Cycle' THEN 'Ensino Medio'
+			WHEN Education = 'Basic' THEN 'Ensino Basico'
+		END AS escolaridade,
+		CASE 
+			WHEN Marital_Status = 'Single' OR Marital_Status = 'Alone' OR Marital_Status = 'YOLO' THEN 'Solteiro'
+			WHEN Marital_Status = 'Together' OR Marital_Status = 'Married' OR Marital_Status = 'Absurd' THEN 'Casado'
+			WHEN Marital_Status = 'Divorced' THEN 'Divorciado'
+			WHEN Marital_Status = 'Widow' THEN 'Viuvo'
+		END AS estado_civil,
+		CASE 
+			WHEN Income < 666666 THEN Income
+			ELSE 51970
+		END AS renda,
+		Kidhome AS criancas_casa,
+		Teenhome AS adolescentes_casa,
+		STR_TO_DATE(Dt_Customer, '%d/%m/%Y') AS data_inscricao,
+		Recency AS dias_ultima_compra,
+		MntWines AS gasto_vinhos,
+		MntFruits AS gasto_frutas,
+		MntMeatProducts AS gasto_carnes,
+		MntFishProducts AS gasto_peixes,
+		MntSweetProducts AS gasto_doces,
+		MntGoldProds AS gastos_premium,
+		NumDealsPurchases AS compras_desconto,
+		NumWebPurchases AS compras_site,
+		NumCatalogPurchases AS compras_catalogo,
+		NumStorePurchases AS compras_loja,
+		NumWebVisitsMonth AS visitas_mes_site,
+		Complain AS reclamacao,
+		AcceptedCmp1 AS campanha1,
+		AcceptedCmp2 AS campanha2, 
+		AcceptedCmp3 AS campanha3,
+		AcceptedCmp4 AS campanha4,
+		AcceptedCmp5 AS campanha5,
+		Response AS campanha6	
+	FROM marketing_campanhas.clientes);
+```
 
 
 
