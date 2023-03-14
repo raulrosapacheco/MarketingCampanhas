@@ -109,7 +109,7 @@ FROM marketing_campanhas.clientes
 ORDER BY renda DESC; 
 ```
 
-* Calculando a média da idade, desconsiderando os outliers: 45 anos.
+* Calculando a média da idade dos clientes, desconsiderando os outliers: 45 anos.
 ```sql
 SELECT ROUND(AVG((2014 - Year_Birth)),0) AS media_idade
 FROM marketing_campanhas.clientes 
