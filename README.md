@@ -1,16 +1,27 @@
 # MarketingCampanhas
 
 ## Contexto do Projeto
-“Sou analista de dados e o diretor de marketing de uma empresa me informou que as campanhas de marketing anteriores não foram tão eficazes quanto se esperava. Faz parte do meu trabalho, analisar o conjunto de dados para entender esse problema e propor soluções baseadas em dados.” 
+Um Boutique especializada em Vinhos e Carnes realizou 6 campanhas de marketing direcionado para os clientes fidelizados. O dono da loja contratou um analista de dados com o objetivo de identificar o perfil dos seus clientes e avaliar a efetividade de cada campanha.
 
 Esse contexto foi parafraseado e adaptado a partir do que foi proposto no dataset <a href="https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign">Marketing Campaign</a>.
 
 Os dados utilizados nesse projeto podem ser obtidos no mesmo link acima. 
 
-## Tecnologias Utilizadas
-Os dados foram carregados localmente via **MySQL Workbench** e utilizando linguagem **SQL** foi possível realizar a análise exploratória dos dados, fazer as limpezas e transformações necessárias e responder algumas perguntas de negócio.
+## Perguntas de Negócio
+Com o intuito de identificar o perfil dos clientes fidelizados e a efetividade de cada campanha de marketing, algumas perguntas de negócio foram definadas.
 
-Por fim, utilizando a ferramenta do **Power BI**, um dashbord analítico criado com o objetivo de apresentar a análise ao tomador de decisão da empresa.
+**1 - Qual a renda média dos clientes fidelizados?**
+
+**2 - Qual a proporção dos clientes por estado civil, escolaridade e número de filhos em casa?**
+
+**3 - Qual a taxa de conversão de cada campanha?**
+
+**4 - É possível identificar um padrão entre os clientes que compraram em cada campanha?** 
+
+## Tecnologias Utilizadas
+Os dados foram carregados localmente via **MySQL Workbench** e utilizando linguagem **SQL** foi possível realizar a análise exploratória dos dados, fazer as limpezas e transformações necessárias e responder algumas das perguntas de negócio.
+
+Por fim, utilizando a ferramenta do **Power BI**, um dashbord analítico criado com o objetivo de apresentar a análise ao dono da loja.
  
 ## Dicionário de Dados
 O arquivo CSV utilizado neste projeto possui 22.016 registros de clientes, contendo 27 variáveis(colunas) para cada cliente. Irei aqui fazer uma breve descrição das variáveis.
@@ -124,15 +135,24 @@ WHERE income < 666666;
 ```
 
 ### 3. Transformando dados e gerando uma nova tabela
+Com o objetivo de facilitar a análise, algumas transformações nos dados foram necessárias.
+
+**Os dados foram traduzidos para o idioma português;**
+**A coluna Year_Birth foi transformada em idade do cliente, considerando que os dados são de 2014;**
+**Os valores 'Absurd' referentes a coluna 'estado_civil' foi substituido pela moda desta coluna (Casado);**
+**Os valores 'YOLO' referentes a coluna 'estado_civil' foi entendido que representava um cliente 'Solteiro;**
+**Valores outliers da coluna 'renda' foram substituidos pela média;**
+**Número de crianças e adolescentes foram somados e armazenados na coluna 'filhos_casa';**
+**Foi criada uma nova coluna com o total dos gastos de cada cliente.**
 
 ```sql
 CREATE TABLE `clientes_transformados` AS (
-SELECT
+	SELECT
 		Id AS id,
         	CASE
 			WHEN (2014 - Year_Birth) < 114 THEN (2014 - Year_Birth) 
-            	ELSE 45 
-		END AS idade,
+            		ELSE 45 
+            	END AS idade,
 		CASE 
 			WHEN Education = 'Graduation' THEN 'Graduacao'
 			WHEN Education = 'PhD' THEN 'Doutorado'
@@ -148,10 +168,9 @@ SELECT
 		END AS estado_civil,
 		CASE 
 			WHEN Income < 666666 THEN Income
-			ELSE 51970
+            		ELSE 51970
 		END AS renda,
-		Kidhome AS criancas_casa,
-		Teenhome AS adolescentes_casa,
+		(Kidhome + Teenhome) AS	filhos_casa,
 		STR_TO_DATE(Dt_Customer, '%d/%m/%Y') AS data_inscricao,
 		Recency AS dias_ultima_compra,
 		MntWines AS gasto_vinhos,
@@ -160,6 +179,7 @@ SELECT
 		MntFishProducts AS gasto_peixes,
 		MntSweetProducts AS gasto_doces,
 		MntGoldProds AS gastos_premium,
+		(MntWines + MntFruits + MntMeatProducts + MntFishProducts + MntSweetProducts + MntGoldProds) AS total_gastos,
 		NumDealsPurchases AS compras_desconto,
 		NumWebPurchases AS compras_site,
 		NumCatalogPurchases AS compras_catalogo,
@@ -175,6 +195,24 @@ SELECT
 	FROM marketing_campanhas.clientes);
 ```
 
+## Perguntas de Negócio
+
+**1 - Qual a renda média dos clientes fidelizados?**
+
+**2 - Qual a proporção dos clientes por estado civil, escolaridade e número de filhos em casa?**
+
+**3 - Qual a taxa de conversão de cada campanha?**
+
+**4 - É possível identificar um padrão entre os clientes que compraram em cada campanha?** 
+
+## Sumarização dos Resultados
+
+## Contato
+Para possíveis dúvidas, críticas ou sugestões sobre o presente projeto.
+
+E-mail: raulrosa.dev@gmail.com
+
+LinkedIn: [linkedin.com/in/raul-rosa/](https://www.linkedin.com/in/raul-rosa/)
 
 
 
