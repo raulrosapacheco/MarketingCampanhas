@@ -1,14 +1,14 @@
 # Análise de Dados de Clientes e Campanhas de Marketing
 
 ## Contexto do Projeto
-Um Boutique de Vinhos e Carnes realizou 6 campanhas de marketing direcionado para os clientes fidelizados. O dono da loja me contratou como analista de dados com o objetivo de identificar o perfil dos seus clientes e avaliar a efetividade de cada campanha nos últimos 2 anos.
+Um Boutique de Alimentos realizou 6 campanhas de marketing direcionado para os clientes fidelizados. O dono da loja me contratou como analista de dados com o objetivo de identificar o perfil dos seus clientes e avaliar a efetividade de cada campanha nos últimos 2 anos.
 
-Esse contexto foi parafraseado e adaptado a partir do que foi proposto no dataset <a href="https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign">Marketing Campaign</a>.
+Esse contexto foi parafraseado e adaptado a partir do que foi proposto no link: <a href="https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign">Marketing Campaign</a>.
 
 Os dados utilizados nesse projeto podem ser obtidos no mesmo link acima. 
 
 ## Perguntas de Negócio
-Com o intuito de identificar o perfil dos clientes fidelizados e a efetividade de cada campanha de marketing, algumas perguntas de negócio foram definadas.
+Com o intuito de identificar o perfil dos clientes fidelizados e a efetividade de cada campanha de marketing, algumas perguntas de negócio foram desenvolvidas.
 
 **1 - Qual a renda média dos clientes fidelizados?**
 
@@ -60,7 +60,7 @@ O arquivo CSV utilizado neste projeto possui 22.016 registros de clientes, conte
 ### 1. Importação dos dados
 Utilizando o MySQL Workbench foi criado um SCHEMA com o nome de **marketing_campanhas** e realizado a importação dos dados do arquivo **marketing_campaign.csv**, criando assim uma tabela denominada de **clientes**.
 
-### 2. Explorando os dados
+### 2. Exploração os dados
 * Visualizando os dados.
 ```sql
 SELECT * FROM marketing_campanhas.clientes;
@@ -113,7 +113,7 @@ ORDER BY Year_Birth ASC;
 
 * Verifica a renda dos clientes
 
-Analisando a renda dos clientes, também é possivel perceber a presença de 1 valor outliers: 666666 dolares.
+Analisando a renda dos clientes, também é possível perceber a presença de 1 valor outliers: 666666 dolares.
 ```sql
 SELECT income AS renda 
 FROM marketing_campanhas.clientes
@@ -141,19 +141,19 @@ Com o objetivo de facilitar a análise, algumas transformações nos dados foram
 
 **2 - A coluna 'Year_Birth' foi transformada em 'idade' do cliente baseado no ano de 2014;**
 
-**3 - Os valores 'Absurd' referentes a coluna 'estado_civil' foi substituido pela moda desta coluna ('Casado');**
+**3 - Os valores 'Absurd' referentes a coluna 'estado_civil' foi substituindo pela moda desta coluna ('Casado');**
 
 **4 - Os valores 'YOLO' referentes a coluna 'estado_civil' foram interpretados com um cliente 'Solteiro';**
 
-**5 - Os valores outliers da coluna 'renda' foram substituidos pela média de renda;**
+**5 - Os valores outliers da coluna 'renda' foram substituídos pela média de renda;**
 
 **6 - Os valores outliers da coluna 'idade' foram substituidos pela média de idade;**
 
 **7 - Número de crianças e adolescentes foram somados e armazenados na coluna 'filhos_casa';**
 
-**8 - A coluna referente a data de fidelização do cliente foi aleterada para o tipo date;
+**8 - A coluna referente a data de fidelização do cliente foi alterada para o tipo date;**
 
-**9 - Foi criada uma nova coluna com o total dos gastos de cada cliente;**
+**9 - Foi criada uma coluna com o total dos gastos de cada cliente;**
 
 **10 - Uma nova tabela denominada de 'clientes_tranformados' foi criada.**
 
@@ -207,9 +207,9 @@ CREATE TABLE `clientes_transformados` AS (
 	FROM marketing_campanhas.clientes);
 ```
 ## Dashboard
-O Dashbord foi criado a partir da tabela 'clientes_transformados'.
+O Dashboard foi criado a partir da tabela 'clientes_transformados'.
 
-Abaixo temos o print dos Dashbords Visão Cliente e Visão Campanhas referêntes as campanhas 2 e 6.
+Abaixo temos o print dos Dashboards Visão Cliente e Visão Campanhas referentes as campanhas 2 e 6.
 
 Você poderá acessar o Dashboard clicando em: <a href="https://app.powerbi.com/view?r=eyJrIjoiYjJhYjhkNGQtOTg2OC00MDE2LWI1ZTktODI2NmNkMjVkNGRjIiwidCI6IjUzYmMxZDQ4LTgxMWEtNGI0Ny1hYzFkLWRhYzQ2NmQwMjZjYSJ9">Análise do Cliente e Campanhas de Marketing<a>.
 
