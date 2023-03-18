@@ -1,7 +1,7 @@
 # MarketingCampanhas
 
 ## Contexto do Projeto
-Um Boutique especializada em Vinhos e Carnes realizou 6 campanhas de marketing direcionado para os clientes fidelizados. O dono da loja contratou um analista de dados com o objetivo de identificar o perfil dos seus clientes e avaliar a efetividade de cada campanha.
+Um Boutique de Vinhos e Carnes realizou 6 campanhas de marketing direcionado para os clientes fidelizados. O dono da loja contratou um analista de dados com o objetivo de identificar o perfil dos seus clientes e avaliar a efetividade de cada campanha.
 
 Esse contexto foi parafraseado e adaptado a partir do que foi proposto no dataset <a href="https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign">Marketing Campaign</a>.
 
@@ -138,10 +138,11 @@ WHERE income < 666666;
 Com o objetivo de facilitar a análise, algumas transformações nos dados foram necessárias.
 
 **Os dados foram traduzidos para o idioma português;**
-**A coluna Year_Birth foi transformada em idade do cliente, considerando que os dados são de 2014;**
-**Os valores 'Absurd' referentes a coluna 'estado_civil' foi substituido pela moda desta coluna (Casado);**
-**Os valores 'YOLO' referentes a coluna 'estado_civil' foi entendido que representava um cliente 'Solteiro;**
-**Valores outliers da coluna 'renda' foram substituidos pela média;**
+**A coluna 'Year_Birth' foi transformada em 'idade' do cliente baseado no ano de 2014;**
+**Os valores 'Absurd' referentes a coluna 'estado_civil' foi substituido pela moda desta coluna ('Casado');**
+**Os valores 'YOLO' referentes a coluna 'estado_civil' foram interpretados com um cliente 'Solteiro';**
+**Os valores outliers da coluna 'renda' foram substituidos pela média de renda;**
+**Os valores outliers da coluna 'idade' foram substituidos pela média de idade;**
 **Número de crianças e adolescentes foram somados e armazenados na coluna 'filhos_casa';**
 **Foi criada uma nova coluna com o total dos gastos de cada cliente.**
 
@@ -195,17 +196,21 @@ CREATE TABLE `clientes_transformados` AS (
 	FROM marketing_campanhas.clientes);
 ```
 
-## Perguntas de Negócio
-
-**1 - Qual a renda média dos clientes fidelizados?**
-
-**2 - Qual a proporção dos clientes por estado civil, escolaridade e número de filhos em casa?**
-
-**3 - Qual a taxa de conversão de cada campanha?**
-
-**4 - É possível identificar um padrão entre os clientes que compraram em cada campanha?** 
-
 ## Sumarização dos Resultados
+
+- A loja possui um total de 2.216 clientes fidelizados, cuja renda média anual é de $51.970;
+- A maior parte das compras é realizada na loja física, representando 46% do total;
+- Dos clientes fidelizados, 65% são casados e 91% possuem pelo menos ensino superior.
+- 78% dos clientes fidelizados têm até um filho em casa.
+- A campanha 2 teve a menor taxa de conversão, ou seja, apenas 1,35% dos clientes compraram na campanha.
+- A campanha 6 teve a maior taxa de conversão, com 15,03% dos clientes adquirindo produtos na campanha.
+- Em média, os clientes que compraram na campanha 1 possuíam uma renda 52% maior do que a média da totalidade.
+- Dos clientes que compraram na campanha 1, 77% não possuem filhos em casa, o que se torna mais o fato mais expressivo é que apenas 28% dos clientes fidelizados não possuem filhos em casa.
+- A campanha 2 atingiu um perfil de clientes que gastou 300% a mais com vinhos em comparação com a média da totalidade.
+- Entre todas as campanhas, o perfil dos clientes que compraram na campanha 3 foi o que mais se assemelhou com o perfil médio dos clientes fidelizados.
+- Assim como na campanha 2, a campanha 4 atingiu um perfil de clientes que gastam mais com vinhos.
+- O perfil médio dos clientes que compraram na campanha 5 se assemelha com o perfil dos clientes que compraram na campanha 1, tendo uma renda 58% maior que a média em geral e 84% destes não possuem filhos.
+- A campanha 6 se mostrou a mais assertiva não apenas pela maior taxa de conversão, mas também por atingir um perfil médio de cliente que consome todos os tipos de produtos da loja.
 
 ## Contato
 Para possíveis dúvidas, críticas ou sugestões sobre o presente projeto.
