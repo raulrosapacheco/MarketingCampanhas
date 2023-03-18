@@ -1,4 +1,4 @@
-# MarketingCampanhas
+# Análise de Dados de Clientes e Campanhas de Marketing
 
 ## Contexto do Projeto
 Um Boutique de Vinhos e Carnes realizou 6 campanhas de marketing direcionado para os clientes fidelizados. O dono da loja me contratou como analista de dados com o objetivo de identificar o perfil dos seus clientes e avaliar a efetividade de cada campanha nos últimos 2 anos.
@@ -137,25 +137,25 @@ WHERE income < 666666;
 ### 3. Limpando, Transformando dados e gerando uma nova tabela
 Com o objetivo de facilitar a análise, algumas transformações nos dados foram necessárias.
 
-**Os dados foram traduzidos para o idioma português;**
+**1 - Os dados foram traduzidos para o idioma português;**
 
-**A coluna 'Year_Birth' foi transformada em 'idade' do cliente baseado no ano de 2014;**
+**2 - A coluna 'Year_Birth' foi transformada em 'idade' do cliente baseado no ano de 2014;**
 
-**Os valores 'Absurd' referentes a coluna 'estado_civil' foi substituido pela moda desta coluna ('Casado');**
+**3 - Os valores 'Absurd' referentes a coluna 'estado_civil' foi substituido pela moda desta coluna ('Casado');**
 
-**Os valores 'YOLO' referentes a coluna 'estado_civil' foram interpretados com um cliente 'Solteiro';**
+**4 - Os valores 'YOLO' referentes a coluna 'estado_civil' foram interpretados com um cliente 'Solteiro';**
 
-**Os valores outliers da coluna 'renda' foram substituidos pela média de renda;**
+**5 - Os valores outliers da coluna 'renda' foram substituidos pela média de renda;**
 
-**Os valores outliers da coluna 'idade' foram substituidos pela média de idade;**
+**6 - Os valores outliers da coluna 'idade' foram substituidos pela média de idade;**
 
-**Número de crianças e adolescentes foram somados e armazenados na coluna 'filhos_casa';**
+**7 - Número de crianças e adolescentes foram somados e armazenados na coluna 'filhos_casa';**
 
-**A coluna referente a data de fidelização do cliente foi aleterada para o tipo date;
+**8 - A coluna referente a data de fidelização do cliente foi aleterada para o tipo date;
 
-**Foi criada uma nova coluna com o total dos gastos de cada cliente;**
+**9 - Foi criada uma nova coluna com o total dos gastos de cada cliente;**
 
-**Uma nova tabela denominada de 'clientes_tranformados', foi criada.
+**10 - Uma nova tabela denominada de 'clientes_tranformados' foi criada.**
 
 ```sql
 CREATE TABLE `clientes_transformados` AS (
