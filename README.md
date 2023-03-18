@@ -1,7 +1,7 @@
 # MarketingCampanhas
 
 ## Contexto do Projeto
-Um Boutique de Vinhos e Carnes realizou 6 campanhas de marketing direcionado para os clientes fidelizados. O dono da loja me contratou como analista de dados com o objetivo de identificar o perfil dos seus clientes e avaliar a efetividade de cada campanha.
+Um Boutique de Vinhos e Carnes realizou 6 campanhas de marketing direcionado para os clientes fidelizados. O dono da loja me contratou como analista de dados com o objetivo de identificar o perfil dos seus clientes e avaliar a efetividade de cada campanha nos últimos 2 anos.
 
 Esse contexto foi parafraseado e adaptado a partir do que foi proposto no dataset <a href="https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign">Marketing Campaign</a>.
 
@@ -206,6 +206,19 @@ CREATE TABLE `clientes_transformados` AS (
 		Response AS campanha6	
 	FROM marketing_campanhas.clientes);
 ```
+## Dashboard
+O Dashbord foi criado a partir da tabela 'clientes_transformados'.
+
+Abaixo temos o print dos Dashbords Visão Cliente e Visão Campanhas referêntes as campanhas 2 e 6.
+
+Você poderá acessar o Dashboard clicando em: <a href="https://app.powerbi.com/view?r=eyJrIjoiYjJhYjhkNGQtOTg2OC00MDE2LWI1ZTktODI2NmNkMjVkNGRjIiwidCI6IjUzYmMxZDQ4LTgxMWEtNGI0Ny1hYzFkLWRhYzQ2NmQwMjZjYSJ9">Análise do Cliente e Campanhas de Marketing<a>.
+
+![image](https://user-images.githubusercontent.com/75815212/226145497-74e993fa-bc64-4cc8-9ef9-4cb7968fd822.png)
+
+![image](https://user-images.githubusercontent.com/75815212/226145601-bf6ec6c9-7bdd-4951-8165-0e5a49ae02c0.png)
+
+![image](https://user-images.githubusercontent.com/75815212/226145538-5d6e2ccf-dce7-4516-95f4-35775f5f7be6.png)
+
 
 ## Sumarização dos Resultados
 
