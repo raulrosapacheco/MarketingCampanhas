@@ -1,7 +1,7 @@
 # Análise de Dados de Clientes e Campanhas de Marketing
 
 ## Contexto do Projeto
-Um Boutique de Alimentos realizou 6 campanhas de marketing direcionado para os clientes fidelizados. O dono da loja me contratou como analista de dados com o objetivo de identificar o perfil dos seus clientes e avaliar a efetividade de cada campanha nos últimos 2 anos.
+Uma Boutique de Alimentos realizou 6 campanhas de marketing direcionado aos clientes cadastrados. O dono da loja me contratou como analista de dados com o objetivo de identificar o perfil dos seus clientes e avaliar a efetividade de cada campanha nos últimos 2 anos.
 
 Esse contexto foi parafraseado e adaptado a partir do que foi proposto no link: <a href="https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign">Marketing Campaign</a>.
 
@@ -10,7 +10,7 @@ Os dados utilizados nesse projeto podem ser obtidos no mesmo link acima.
 ## Perguntas de Negócio
 Com o intuito de identificar o perfil dos clientes fidelizados e a efetividade de cada campanha de marketing, algumas perguntas de negócio foram desenvolvidas.
 
-**1 - Qual a renda média dos clientes fidelizados?**
+**1 - Qual a renda média dos clientes cadastrados?**
 
 **2 - Qual a proporção dos clientes por estado civil, escolaridade e número de filhos em casa?**
 
@@ -21,10 +21,10 @@ Com o intuito de identificar o perfil dos clientes fidelizados e a efetividade d
 ## Tecnologias Utilizadas
 Os dados foram carregados localmente via **MySQL Workbench** e utilizando linguagem **SQL** foi possível realizar a análise exploratória dos dados, fazer limpezas e transformações nos dados e efetuar consultas que auxiliaram nas respostas das perguntas de negócio.
 
-Por fim, utilizando a ferramenta do **Power BI**, um dashbord analítico criado com o objetivo de apresentar a análise ao dono da loja.
+Por fim, utilizando a ferramenta do **Power BI**, um dashbord analítico foi criado com o objetivo de apresentar a análise ao dono da loja.
  
 ## Dicionário de Dados
-O arquivo CSV utilizado neste projeto possui 22.016 registros de clientes, contendo 27 variáveis(colunas) para cada cliente. Irei aqui fazer uma breve descrição das variáveis.
+O arquivo CSV utilizado neste projeto possui 22.016 registros de clientes, contendo 27 variáveis(colunas) para cada cliente. Segue abaixo uma breve descrição das variáveis.
 
 | Nome da Coluna Original | Descrição |
 | --- | --- |
@@ -35,7 +35,7 @@ O arquivo CSV utilizado neste projeto possui 22.016 registros de clientes, conte
 | Income | Renda Familiar Anual |
 | Kidhome | Número de crianças na casa do cliente |
 | Teenhome | Número de adolescentes na casa do cliente |
-| Dt_Customer | Data de fidelização do cliente na empresa |
+| Dt_Customer | Data de cadastro do cliente na empresa |
 | Recency | Número de dias desde a última compra |
 | MntWines | Gasto com Vinhos nos últimos 2 anos |
 | MntFruits | Gasto com Frutas nos últimos 2 anos |
@@ -58,7 +58,7 @@ O arquivo CSV utilizado neste projeto possui 22.016 registros de clientes, conte
 
 ## Explorando e Transformando dados utilizando linguagem SQL
 ### 1. Importação dos dados
-Utilizando o MySQL Workbench foi criado um SCHEMA com o nome de **marketing_campanhas** e realizado a importação dos dados do arquivo **marketing_campaign.csv**, criando assim uma tabela denominada de **clientes**.
+Utilizando o MySQL Workbench foi criado um SCHEMA com o nome de **marketing_campanhas** e realizado a importação dos dados do arquivo **marketing_campaign.csv** em uma tabela denominada de **clientes**.
 
 ### 2. Exploração os dados
 * Visualizando os dados.
@@ -111,7 +111,7 @@ FROM marketing_campanhas.clientes
 ORDER BY Year_Birth ASC;
 ```
 
-* Verifica a renda dos clientes
+* Verificando a renda dos clientes
 
 Analisando a renda dos clientes, também é possível perceber a presença de 1 valor outliers: 666666 dolares.
 ```sql
@@ -141,9 +141,9 @@ Com o objetivo de facilitar a análise, algumas transformações nos dados foram
 
 **2 - A coluna 'Year_Birth' foi transformada em 'idade' do cliente baseado no ano de 2014;**
 
-**3 - Os valores 'Absurd' referentes a coluna 'estado_civil' foi substituindo pela moda desta coluna ('Casado');**
+**3 - Os valores 'Absurd' da coluna 'estado_civil' foi substituidos pelo valor que mais aparece na coluna, ou seja, 'Casado';**
 
-**4 - Os valores 'YOLO' referentes a coluna 'estado_civil' foram interpretados com um cliente 'Solteiro';**
+**4 - Os valores 'YOLO' da coluna 'estado_civil' foram interpretados como 'Solteiro';**
 
 **5 - Os valores outliers da coluna 'renda' foram substituídos pela média de renda;**
 
@@ -222,10 +222,10 @@ Você poderá acessar o Dashboard clicando em: <a href="https://app.powerbi.com/
 
 ## Sumarização dos Resultados
 
-- A loja possui um total de 2.216 clientes fidelizados, cuja renda média anual é de $51.970;
+- A loja possui um total de 2.216 clientes cadastrados, cuja renda média anual é de $51.970;
 - A maior parte das compras é realizada na loja física, representando 46% do total;
 - Dos clientes fidelizados, 65% são casados e 91% possuem pelo menos ensino superior;
-- 78% dos clientes fidelizados têm até um filho em casa;
+- 78% dos clientes cadastrados têm até um filho em casa;
 - A campanha 2 teve a menor taxa de conversão, ou seja, apenas 1,35% dos clientes compraram na campanha;
 - A campanha 6 teve a maior taxa de conversão, com 15,03% dos clientes adquirindo produtos na campanha;
 - Em média, os clientes que compraram na campanha 1 possuíam uma renda 52% maior do que a média da totalidade;
