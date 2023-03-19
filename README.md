@@ -1,14 +1,12 @@
 # Análise de Dados de Clientes e Campanhas de Marketing
 
 ## Contexto do Projeto
-Uma Boutique de Alimentos realizou 6 campanhas de marketing direcionado aos clientes cadastrados. O dono da loja me contratou como analista de dados com o objetivo de identificar o perfil dos seus clientes e avaliar a efetividade de cada campanha nos últimos 2 anos.
+Uma Boutique de Alimentos realizou 6 campanhas de marketing direcionado aos clientes cadastrados. O diretor de marketing da loja me contratou como analista de dados com o objetivo de identificar o perfil dos seus clientes e avaliar a efetividade de cada campanha nos últimos 2 anos.
 
-Esse contexto foi parafraseado e adaptado a partir do que foi proposto no link: <a href="https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign">Marketing Campaign</a>.
-
-Os dados utilizados nesse projeto podem ser obtidos no mesmo link acima. 
+Os dados utilizados nesse projeto podem ser obtidos no link: <a href="https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign">Marketing Campaign</a>.
 
 ## Perguntas de Negócio
-Com o intuito de identificar o perfil dos clientes fidelizados e a efetividade de cada campanha de marketing, algumas perguntas de negócio foram desenvolvidas.
+Com o intuito de identificar o perfil dos clientes cadastrados e a efetividade de cada campanha de marketing, algumas perguntas de negócio foram desenvolvidas.
 
 **1 - Qual a renda média dos clientes cadastrados?**
 
@@ -135,7 +133,7 @@ WHERE income < 666666;
 ```
 
 ### 3. Limpando, Transformando dados e gerando uma nova tabela
-Com o objetivo de facilitar a análise, algumas transformações nos dados foram necessárias.
+Com o objetivo de facilitar a análise, algumas transformações nos dados foram realizadas.
 
 **1 - Os dados foram traduzidos para o idioma português;**
 
@@ -151,11 +149,11 @@ Com o objetivo de facilitar a análise, algumas transformações nos dados foram
 
 **7 - Número de crianças e adolescentes foram somados e armazenados na coluna 'filhos_casa';**
 
-**8 - A coluna referente a data de fidelização do cliente foi alterada para o tipo date;**
+**8 - A coluna referente a data de cadastro do cliente foi alterada para o tipo date;**
 
 **9 - Foi criada uma coluna com o total dos gastos de cada cliente;**
 
-**10 - Uma nova tabela denominada de 'clientes_tranformados' foi criada.**
+**10 - Uma nova tabela denominada de 'clientes_transformados' foi criada.**
 
 ```sql
 CREATE TABLE `clientes_transformados` AS (
@@ -211,7 +209,7 @@ O Dashboard foi criado a partir da tabela 'clientes_transformados'.
 
 Abaixo temos o print dos Dashboards Visão Cliente e Visão Campanhas referentes as campanhas 2 e 6.
 
-Você poderá acessar o Dashboard clicando em: <a href="https://app.powerbi.com/view?r=eyJrIjoiYjJhYjhkNGQtOTg2OC00MDE2LWI1ZTktODI2NmNkMjVkNGRjIiwidCI6IjUzYmMxZDQ4LTgxMWEtNGI0Ny1hYzFkLWRhYzQ2NmQwMjZjYSJ9">Análise do Cliente e Campanhas de Marketing<a>.
+Você pode acessar o Dashboard clicando em: <a href="https://app.powerbi.com/view?r=eyJrIjoiYjJhYjhkNGQtOTg2OC00MDE2LWI1ZTktODI2NmNkMjVkNGRjIiwidCI6IjUzYmMxZDQ4LTgxMWEtNGI0Ny1hYzFkLWRhYzQ2NmQwMjZjYSJ9">Análise do Cliente e Campanhas de Marketing<a>.
 
 ![image](https://user-images.githubusercontent.com/75815212/226145497-74e993fa-bc64-4cc8-9ef9-4cb7968fd822.png)
 
@@ -237,7 +235,7 @@ Você poderá acessar o Dashboard clicando em: <a href="https://app.powerbi.com/
 - A campanha 6 se mostrou a mais assertiva não apenas pela maior taxa de conversão, mas também por atingir um perfil médio de cliente que consome todos os tipos de produtos da loja.
 
 ## Contato
-Para possíveis dúvidas, críticas ou sugestões sobre o presente projeto.
+Agradeço por ter lido até o final! Ademais, Gostaria de receber seu feedback. Se houver qualquer parte que não esteja clara ou que possa ser aprimorada, por favor, entre em contato comigo.
 
 E-mail: raulrosa.dev@gmail.com
 
