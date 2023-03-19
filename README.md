@@ -222,14 +222,14 @@ Você pode acessar o Dashboard clicando em: <a href="https://app.powerbi.com/vie
 
 - A loja possui um total de 2.216 clientes cadastrados, cuja renda média anual é de $51.970;
 - A maior parte das compras é realizada na loja física, representando 46% do total;
-- Dos clientes fidelizados, 65% são casados e 91% possuem pelo menos ensino superior;
+- Dos clientes cadastrados, 65% são casados e 91% possuem pelo menos ensino superior;
 - 78% dos clientes cadastrados têm até um filho em casa;
 - A campanha 2 teve a menor taxa de conversão, ou seja, apenas 1,35% dos clientes compraram na campanha;
 - A campanha 6 teve a maior taxa de conversão, com 15,03% dos clientes adquirindo produtos na campanha;
 - Em média, os clientes que compraram na campanha 1 possuíam uma renda 52% maior do que a média da totalidade;
-- Dos clientes que compraram na campanha 1, 77% não possuem filhos em casa, o que se torna mais o fato mais expressivo é que apenas 28% dos clientes fidelizados não possuem filhos em casa;
+- Dos clientes que compraram na campanha 1, 77% não possuem filhos em casa, o que se torna mais o fato mais expressivo é que apenas 28% dos clientes cadastrados não possuem filhos em casa;
 - A campanha 2 atingiu um perfil de clientes que gastou 300% a mais com vinhos em comparação com a média da totalidade;
-- Entre todas as campanhas, o perfil dos clientes que compraram na campanha 3 foi o que mais se assemelhou com o perfil médio dos clientes fidelizados;
+- Entre todas as campanhas, o perfil dos clientes que compraram na campanha 3 foi o que mais se assemelhou com o perfil médio dos clientes cadastrados;
 - Assim como na campanha 2, a campanha 4 atingiu um perfil de clientes que gastam mais com vinhos;
 - O perfil médio dos clientes que compraram na campanha 5 se assemelha com o perfil dos clientes que compraram na campanha 1, tendo uma renda 58% maior que a média em geral e 84% destes não possuem filhos;
 - A campanha 6 se mostrou a mais assertiva não apenas pela maior taxa de conversão, mas também por atingir um perfil médio de cliente que consome todos os tipos de produtos da loja.
